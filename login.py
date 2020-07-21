@@ -1,7 +1,7 @@
 from tkinter import*
 from PIL import ImageTk
 
-from text import product
+from home import product
 from tkinter import messagebox
 import mysql.connector
 try:
@@ -48,7 +48,7 @@ class Please_Login:
         #label and entry for password
         self.lbluser = Label(Frame_login, font=('Bahnschrift', 12, "bold"), text="PASSWORD:"
                              , fg="black", bg="white").place(x=10, y=130)
-        self.txt_userpw = Entry(Frame_login, font=("Goudy old style", 15), bg="LAVENDER",textvariable=self.pwvar)
+        self.txt_userpw = Entry(Frame_login, font=("Goudy old style", 15), bg="LAVENDER",textvariable=self.pwvar,show="*")
         self.txt_userpw.place(x=130, y=130, width=170, height=25)
 
         #login button
@@ -70,10 +70,12 @@ class Please_Login:
     def loginAdd(self):
         username1 = self.txt_username.get()
         rollno1 = self.txt_userpw.get()
-        mycursor.execute("SELECT * FROM login")
+        sql="SELECT * FROM login where username=%s"
+        value=(username1,)
+
+        mycursor.execute(sql, value)
         myresult = mycursor.fetchall()
         for i in myresult:
-            print(i)
             id = i[0]
             pw = i[1]
 
@@ -84,7 +86,7 @@ class Please_Login:
             self.reg = Toplevel(self.root)
             product(self.reg)
         else:
-            messagebox.showinfo("enter correct password and username")
+            messagebox.showinfo("Information","enter correct password and username")
 
 
 

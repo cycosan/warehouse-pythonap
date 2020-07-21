@@ -89,7 +89,7 @@ class product:
             self.cboreceive.place(x=200, y=440, width=200, height=25)
 
             #buttons
-            self.b1 = Button(text="ADD", font=('bahnschrift', 15, 'bold'))
+            self.b1 = Button(self.root,text="ADD", font=('bahnschrift', 15, 'bold'))
             self.b1.place(x=50, y=550)
             self.b2 = Button(text="DELETE", font=('bahnschrift', 15, 'bold'))
             self.b2.place(x=50, y=650)
