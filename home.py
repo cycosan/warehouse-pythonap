@@ -33,7 +33,3 @@ class product:
             manifest.product(self.reg)
 
 
-if __name__ =='__main__':
-    root=Tk()
-    product(root)
-    root.mainloop()
