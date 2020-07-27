@@ -84,6 +84,7 @@ class Please_Login:
 
         elif (username1==id and rollno1==pw):
             self.reg = Toplevel(self.root)
+            self.root.destroy()
             product(self.reg)
 
 
